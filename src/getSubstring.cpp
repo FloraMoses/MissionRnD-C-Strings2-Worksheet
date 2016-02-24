@@ -15,9 +15,15 @@ original String
 */
 
 #include <stddef.h>
+#include <malloc.h>
 #include <stdlib.h>
 
-char * get_sub_string(char *str, int i, int j){
-
-    return NULL;
+char * get_sub_string(char *str, int i, int j) {
+	if (str == NULL || j < i)
+		return NULL;
+	char *sub_str = (char*)malloc(sizeof(char)*(j - i + 1));
+	for (int m = 0; i <= j; i++, m++) {
+		sub_str[m] = str[i];
+	}
+	return sub_str;
 }
